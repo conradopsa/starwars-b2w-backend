@@ -87,9 +87,9 @@ public class PlanetaService {
         Planeta p = new Planeta();
 
         p.setIdPlaneta(nextSequenceID());
-        p.setClima(requestPlaneta.clima);
-        p.setNome(requestPlaneta.nome);
-        p.setTerreno(requestPlaneta.terreno);
+        p.setClima(requestPlaneta.getClima());
+        p.setNome(requestPlaneta.getNome());
+        p.setTerreno(requestPlaneta.getTerreno());
         
         return p;
     }
