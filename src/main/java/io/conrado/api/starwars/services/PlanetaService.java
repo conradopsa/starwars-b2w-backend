@@ -1,9 +1,12 @@
 package io.conrado.api.starwars.services;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.IndexOptions;
+
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -73,7 +76,8 @@ public class PlanetaService {
 
             MongoDatabase db = mongoClient.getDatabase(DATABASE);
             MongoCollection<Planeta> planetsCollection = db.getCollection(COLLECTION, Planeta.class);
-
+            setUniqueFields(planetsCollection);
+            
             Planeta planeta = mount(requestPlaneta);
             planetsCollection.insertOne(planeta);
 
@@ -93,7 +97,13 @@ public class PlanetaService {
             return planetsCollection.findOneAndDelete(eq("idPlaneta", idPlaneta));
         }
     }
-    
+
+    private void setUniqueFields(MongoCollection<Planeta> planetsCollection) {
+        IndexOptions indexUnique = new IndexOptions().unique(true);
+        
+        planetsCollection.createIndex(new BasicDBObject("idPlaneta", 1), indexUnique);
+        planetsCollection.createIndex(new BasicDBObject("nome", 1), indexUnique);        
+    }
 
     /**
      * Find Max ID and increment one

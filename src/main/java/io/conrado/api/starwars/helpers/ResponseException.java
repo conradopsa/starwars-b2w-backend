@@ -10,6 +10,6 @@ public class ResponseException {
 
     public static Response ResponseException500(Exception ex) {
         ex.printStackTrace(System.err);
-        return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+        return Response.status(Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
     }
 }

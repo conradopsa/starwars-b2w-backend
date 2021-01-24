@@ -10,6 +10,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import com.mongodb.MongoWriteException;
+
 import org.bson.conversions.Bson;
 
 import io.conrado.api.starwars.models.Planeta;
@@ -18,7 +21,6 @@ import io.conrado.api.starwars.services.PlanetaService;
 
 import static com.mongodb.client.model.Filters.*;
 import static io.conrado.api.starwars.helpers.ResponseException.*;
-
 
 @Path("/planetas")
 public class PlanetaController {
@@ -41,13 +43,13 @@ public class PlanetaController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPlanetas(@QueryParam("nome") String nome) {
-        
+
         try {
             Bson filter = null;
 
             if (nome != null)
                 filter = eq("nome", nome);
-            
+
             return Response.ok(planetaService.queryPlanetas(filter)).build();
         } catch (Exception ex) {
             return ResponseException500(ex);
@@ -75,7 +77,7 @@ public class PlanetaController {
         try {
 
             Planeta deleted = planetaService.deletePlanetas(idPlaneta);
-            
+
             if (deleted == null)
                 return Response.status(404).build();
 
