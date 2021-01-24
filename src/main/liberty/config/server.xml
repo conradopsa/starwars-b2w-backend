@@ -5,6 +5,7 @@
     <feature>mpConfig-1.4</feature>
     <feature>mpHealth-2.2</feature>
     <feature>mpMetrics-2.3</feature>
+    <feature>transportSecurity-1.0</feature>
   </featureManager>
 
   <applicationManager autoExpand="true" />
@@ -16,7 +17,7 @@
   <variable name="app.context.root" defaultValue="/"/>
 
   <httpEndpoint host="*" httpPort="${default.http.port}" httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
-  <keyStore id="defaultKeyStore" password="OpenLiberty" />
+  <keyStore id="defaultKeyStore" location="localhost.crt" type="CRT"/>
 
   <webApplication location="io.conrado.api.starwars.war" contextRoot="${app.context.root}"/>
 </server>
