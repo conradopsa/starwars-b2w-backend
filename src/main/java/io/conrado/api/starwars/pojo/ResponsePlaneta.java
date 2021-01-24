@@ -1,8 +1,10 @@
 package io.conrado.api.starwars.pojo;
 import io.conrado.api.starwars.models.Planeta;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+
 public class ResponsePlaneta extends Planeta {
+    @Getter @Setter
     private Integer quantidadeFilmes;
 }
