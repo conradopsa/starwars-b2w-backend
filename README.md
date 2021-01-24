@@ -1,6 +1,5 @@
-![](https://github.com/OpenLiberty/open-liberty/blob/master/logos/logo_horizontal_light_navy.png)
-
-Starwars B2W Desafio Backend
+# Starwars B2W Desafio Backend
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/B2W_Digital_logo.png/480px-B2W_Digital_logo.png)
 
 Nesse projeto eu utilizei o IBM Open Liberty como servidor Java EE.
 Não se preocupe, deixei um tutorial de como rodá-lo sem problemas no Getting Started.
