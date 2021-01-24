@@ -62,7 +62,7 @@ public class PlanetaService {
         response.setTerreno(model.getTerreno());
 
         if (filmesService != null)
-            response.setQuantidadeFilmes(filmesService.countMoviesByName("Tatooine"));
+            response.setQuantidadeFilmes(filmesService.countMoviesByName(model.getNome()));
 
         return response;
     }
