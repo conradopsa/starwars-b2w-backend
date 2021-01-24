@@ -16,6 +16,16 @@ public class FilmesTest {
     }
 
     @Test()
+    void testFilmesServiceHothNotCaseSensitive() {
+        assertEquals(f.countMoviesByName("Hoth"), 1);
+    }
+
+    @Test()
+    void testFilmesServiceMirialZero() {
+        assertEquals(f.countMoviesByName("Mirial"), 0);
+    }
+
+    @Test()
     void testFilmesServiceNotFound() {
         assertEquals(f.countMoviesByName("qualquerNome"), 0);
     }
