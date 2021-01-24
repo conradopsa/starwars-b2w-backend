@@ -36,5 +36,16 @@ Seu servidor está pronto! :)
 
 http://localhost:9080
 
+## Endpoints
+
+- GET localhost:9080/api/planetas
+> Query: nome -- permite busca por nomes
+
+- GET localhost:9080/api/planetas/{idPlaneta}
+
+- POST localhost:9080/api/planetas
+
+- DELETE localhost:9080/api/planetas/{idPlaneta}
+
 ### Que a força esteja com você!
 
