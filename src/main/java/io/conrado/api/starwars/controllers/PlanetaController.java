@@ -31,12 +31,7 @@ public class PlanetaController {
     public Response getPlaneta(@PathParam("idPlaneta") Integer id) {
 
         try {
-            Bson filter = null;
-
-            if (id != null) 
-                filter = eq("idPlaneta", id);
-
-            return Response.ok(planetaService.queryPlanetas(filter)).build();
+            return Response.ok(planetaService.queryPlanetas(eq("idPlaneta", id)).get(0)).build();
         } catch (Exception ex) {
             return ResponseException500(ex);
         }

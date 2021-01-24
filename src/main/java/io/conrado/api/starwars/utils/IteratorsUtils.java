@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IteratorsUtils {
-    public static List<Object> toList(Iterable iterable) {
-        List<Object> list = new ArrayList<Object>();
+    
+    public static <T> List<T> toList(Iterable<T> iterable) {
+        List<T> list = new ArrayList<T>();
         
-        for (Object obj : iterable)
+        for (T obj : iterable)
             list.add(obj);
         
         return list;
