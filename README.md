@@ -1,12 +1,51 @@
-![](https://github.com/OpenLiberty/open-liberty/blob/master/logos/logo_horizontal_light_navy.png)
+# Starwars B2W Desafio Backend
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/B2W_Digital_logo.png/480px-B2W_Digital_logo.png)
 
-The sample application contains a system microservice to retrieve the system properties and uses MicroProfile Config to simulate the status of the microservice, MicroProfile Health to determine the health of the microservice, and MicroProfile Metrics to provide metrics for the microservice.
+Nesse projeto eu utilizei o IBM Open Liberty como servidor Java EE.
+Não se preocupe, deixei um tutorial de como rodá-lo sem problemas no Getting Started.
+Para demais dúvidas, meu email é conradopsa@gmail.com.
 
-## Run Sample application (press [ENTER] key to run tests])
-    mvn liberty:dev
+Bem vindo!
 
-### Open URL in browser
-    http://localhost:9080
+## Getting Started
+1. Tenha o Mongo DB instalado
 
-### Stop server (quit)
-    q [ENTER]
+Obs.: Utilizei a versão 4.4.3
+
+2. Configure o server.env do projeto
+
+Obs.: Ele fica em: .\src\main\liberty\config\server.env
+
+Obs.: Basta por a URI e a Database do MongoDB.
+
+3. Cerfique que a versão do seu JDK é a 1.8
+> $ java -version
+
+4. Certifique de estar com o Maven instalado em seu ambiente
+
+Obs.: Utilizei a versão 3.6.3 nesse projeto.
+> $ mvn -version
+
+5. Na pasta raíz do projeto (onde fica o pom.xml), instale os pacotes do maven:
+> $ mvn package
+
+6. Execute o comando maven do liberty:
+> $ mvn liberty:run
+
+Seu servidor está pronto! :)
+
+http://localhost:9080
+
+## Endpoints
+
+- GET localhost:9080/api/planetas
+> Query: nome -- permite busca por nomes
+
+- GET localhost:9080/api/planetas/{idPlaneta}
+
+- POST localhost:9080/api/planetas
+
+- DELETE localhost:9080/api/planetas/{idPlaneta}
+
+### Que a força esteja com você!
+
